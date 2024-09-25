@@ -1,0 +1,321 @@
+diff --git a/node_modules/react-native-keyboard-manager/.babelrc b/node_modules/react-native-keyboard-manager/.babelrc
+deleted file mode 100644
+index a9ce136..0000000
+--- a/node_modules/react-native-keyboard-manager/.babelrc
++++ /dev/null
+@@ -1,3 +0,0 @@
+-{
+-  "presets": ["react-native"]
+-}
+diff --git a/node_modules/react-native-keyboard-manager/.buckconfig b/node_modules/react-native-keyboard-manager/.buckconfig
+deleted file mode 100644
+index 934256c..0000000
+--- a/node_modules/react-native-keyboard-manager/.buckconfig
++++ /dev/null
+@@ -1,6 +0,0 @@
+-
+-[android]
+-  target = Google Inc.:Google APIs:23
+-
+-[maven_repositories]
+-  central = https://repo1.maven.org/maven2
+diff --git a/node_modules/react-native-keyboard-manager/.flowconfig b/node_modules/react-native-keyboard-manager/.flowconfig
+deleted file mode 100644
+index 694b720..0000000
+--- a/node_modules/react-native-keyboard-manager/.flowconfig
++++ /dev/null
+@@ -1,47 +0,0 @@
+-[ignore]
+-; We fork some components by platform
+-.*/*[.]android.js
+-
+-; Ignore "BUCK" generated dirs
+-<PROJECT_ROOT>/\.buckd/
+-
+-; Ignore unexpected extra "@providesModule"
+-.*/node_modules/.*/node_modules/fbjs/.*
+-
+-; Ignore duplicate module providers
+-; For RN Apps installed via npm, "Libraries" folder is inside
+-; "node_modules/react-native" but in the source repo it is in the root
+-.*/Libraries/react-native/React.js
+-.*/Libraries/react-native/ReactNative.js
+-
+-[include]
+-
+-[libs]
+-node_modules/react-native/Libraries/react-native/react-native-interface.js
+-node_modules/react-native/flow
+-flow/
+-
+-[options]
+-emoji=true
+-
+-module.system=haste
+-
+-experimental.strict_type_args=true
+-
+-munge_underscores=true
+-
+-module.name_mapper='^[./a-zA-Z0-9$_-]+\.\(bmp\|gif\|jpg\|jpeg\|png\|psd\|svg\|webp\|m4v\|mov\|mp4\|mpeg\|mpg\|webm\|aac\|aiff\|caf\|m4a\|mp3\|wav\|html\|pdf\)$' -> 'RelativeImageStub'
+-
+-suppress_type=$FlowIssue
+-suppress_type=$FlowFixMe
+-suppress_type=$FixMe
+-
+-suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(>=0\\.\\(4[0-5]\\|[1-3][0-9]\\|[0-9]\\).[0-9]\\)? *\\(site=[a-z,_]*react_native[a-z,_]*\\)?)\\)
+-suppress_comment=\\(.\\|\n\\)*\\$FlowIssue\\((\\(>=0\\.\\(4[0-5]\\|[1-3][0-9]\\|[0-9]\\).[0-9]\\)? *\\(site=[a-z,_]*react_native[a-z,_]*\\)?)\\)?:? #[0-9]+
+-suppress_comment=\\(.\\|\n\\)*\\$FlowFixedInNextDeploy
+-suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
+-
+-unsafe.enable_getters_and_setters=true
+-
+-[version]
+-^0.45.0
+diff --git a/node_modules/react-native-keyboard-manager/.gitattributes b/node_modules/react-native-keyboard-manager/.gitattributes
+index 802a12f..63d8ad6 100644
+--- a/node_modules/react-native-keyboard-manager/.gitattributes
++++ b/node_modules/react-native-keyboard-manager/.gitattributes
+@@ -1,3 +1,2 @@
+ *.pbxproj -text
+-ios/IQKeyboardManager/* linguist-vendored
+ Sample/* linguist-vendored
+diff --git a/node_modules/react-native-keyboard-manager/.watchmanconfig b/node_modules/react-native-keyboard-manager/.watchmanconfig
+deleted file mode 100644
+index 9e26dfe..0000000
+--- a/node_modules/react-native-keyboard-manager/.watchmanconfig
++++ /dev/null
+@@ -1 +0,0 @@
+-{}
+\ No newline at end of file
+diff --git a/node_modules/react-native-keyboard-manager/.yarnignore b/node_modules/react-native-keyboard-manager/.yarnignore
+deleted file mode 100644
+index 5140adf..0000000
+--- a/node_modules/react-native-keyboard-manager/.yarnignore
++++ /dev/null
+@@ -1,4 +0,0 @@
+-Sample/
+-SamplePod/
+-__tests__
+-screenshots
+diff --git a/node_modules/react-native-keyboard-manager/ReactNativeKeyboardManager.podspec b/node_modules/react-native-keyboard-manager/ReactNativeKeyboardManager.podspec
+index 4fbdeff..817599d 100644
+--- a/node_modules/react-native-keyboard-manager/ReactNativeKeyboardManager.podspec
++++ b/node_modules/react-native-keyboard-manager/ReactNativeKeyboardManager.podspec
+@@ -20,5 +20,5 @@ Pod::Spec.new do |s|
+ 
+ 	s.dependency 'React-Core'
+ 	s.dependency 'React-RCTText'
+-	s.dependency 'IQKeyboardManagerSwift', iqVersion
++	s.dependency 'IQKeyboardManagerSwift'
+ end
+diff --git a/node_modules/react-native-keyboard-manager/app.json b/node_modules/react-native-keyboard-manager/app.json
+deleted file mode 100644
+index 1dd1be6..0000000
+--- a/node_modules/react-native-keyboard-manager/app.json
++++ /dev/null
+@@ -1,4 +0,0 @@
+-{
+-  "name": "react-native-keyboard-manager",
+-  "displayName": "React-Native Keyboard Manager"
+-}
+\ No newline at end of file
+diff --git a/node_modules/react-native-keyboard-manager/dist/index.d.ts b/node_modules/react-native-keyboard-manager/dist/index.d.ts
+new file mode 100644
+index 0000000..e5d3449
+--- /dev/null
++++ b/node_modules/react-native-keyboard-manager/dist/index.d.ts
+@@ -0,0 +1,51 @@
++/**
++ * MIT License
++ *
++ * Copyright (c) 2017 Douglas Nassif Roma Junior
++ *
++ * Permission is hereby granted, free of charge, to any person obtaining a copy
++ * of this software and associated documentation files (the "Software"), to deal
++ * in the Software without restriction, including without limitation the rights
++ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++ * copies of the Software, and to permit persons to whom the Software is
++ * furnished to do so, subject to the following conditions:
++ *
++ * The above copyright notice and this permission notice shall be included in all
++ * copies or substantial portions of the Software.
++ *
++ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++ * SOFTWARE.
++ */
++import { ComponentType } from 'react';
++import { View, ViewProps } from 'react-native';
++export declare type ToolbarBehaviour = 'subviews' | 'tag' | 'position';
++export declare type KeyboardAppearance = 'default' | 'light' | 'dark';
++export declare const PreviousNextView: ComponentType<ViewProps> | typeof View;
++declare type KeyboardManagerType = {
++    setEnable(enable: boolean): void;
++    setEnableDebugging(enable: boolean): void;
++    setLayoutIfNeededOnUpdate(enable: boolean): void;
++    setKeyboardDistanceFromTextField(distance: number): void;
++    setEnableAutoToolbar(enable: boolean): void;
++    setToolbarDoneBarButtonItemText(text: string): void;
++    setToolbarManageBehaviourBy(behaviour: ToolbarBehaviour): void;
++    setToolbarPreviousNextButtonEnable(enable: boolean): void;
++    setToolbarTintColor(hexColor: string): void;
++    setToolbarBarTintColor(hexColor: string): void;
++    setShouldShowToolbarPlaceholder(enable: boolean): void;
++    setOverrideKeyboardAppearance(enable: boolean): void;
++    setKeyboardAppearance(appearance: KeyboardAppearance): void;
++    setShouldResignOnTouchOutside(enable: boolean): void;
++    setShouldPlayInputClicks(enable: boolean): void;
++    setShouldToolbarUsesTextFieldTintColor(enable: boolean): void;
++    resignFirstResponder(): void;
++    reloadLayoutIfNeeded(): void;
++    isKeyboardShowing(): Promise<boolean>;
++};
++export declare const KeyboardManager: KeyboardManagerType;
++export default KeyboardManager;
+diff --git a/node_modules/react-native-keyboard-manager/dist/index.js b/node_modules/react-native-keyboard-manager/dist/index.js
+new file mode 100644
+index 0000000..d4af03d
+--- /dev/null
++++ b/node_modules/react-native-keyboard-manager/dist/index.js
+@@ -0,0 +1,34 @@
++"use strict";
++/**
++ * MIT License
++ *
++ * Copyright (c) 2017 Douglas Nassif Roma Junior
++ *
++ * Permission is hereby granted, free of charge, to any person obtaining a copy
++ * of this software and associated documentation files (the "Software"), to deal
++ * in the Software without restriction, including without limitation the rights
++ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++ * copies of the Software, and to permit persons to whom the Software is
++ * furnished to do so, subject to the following conditions:
++ *
++ * The above copyright notice and this permission notice shall be included in all
++ * copies or substantial portions of the Software.
++ *
++ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++ * SOFTWARE.
++ */
++Object.defineProperty(exports, "__esModule", { value: true });
++exports.KeyboardManager = exports.PreviousNextView = void 0;
++const react_native_1 = require("react-native");
++const { OS } = react_native_1.Platform;
++exports.PreviousNextView = OS === 'ios'
++    ? (0, react_native_1.requireNativeComponent)('RNKMPreviousNextView')
++    : react_native_1.View;
++exports.KeyboardManager = react_native_1.NativeModules.ReactNativeKeyboardManager;
++exports.default = exports.KeyboardManager;
++//# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/node_modules/react-native-keyboard-manager/dist/index.js.map b/node_modules/react-native-keyboard-manager/dist/index.js.map
+new file mode 100644
+index 0000000..2064c04
+--- /dev/null
++++ b/node_modules/react-native-keyboard-manager/dist/index.js.map
+@@ -0,0 +1 @@
++{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":";AAAA;;;;;;;;;;;;;;;;;;;;;;GAsBG;;;AAGH,+CAMsB;AACtB,MAAM,EAAC,EAAE,EAAC,GAAG,uBAAQ,CAAC;AAMT,QAAA,gBAAgB,GAC3B,EAAE,KAAK,KAAK;IACV,CAAC,CAAE,IAAA,qCAAsB,EACrB,sBAAsB,CACM;IAChC,CAAC,CAAC,mBAAI,CAAC;AAwBE,QAAA,eAAe,GAC1B,4BAAa,CAAC,0BAAiD,CAAC;AAElE,kBAAe,uBAAe,CAAC"}
+\ No newline at end of file
+diff --git a/node_modules/react-native-keyboard-manager/index.d.ts b/node_modules/react-native-keyboard-manager/index.d.ts
+deleted file mode 100644
+index ccce6db..0000000
+--- a/node_modules/react-native-keyboard-manager/index.d.ts
++++ /dev/null
+@@ -1,32 +0,0 @@
+-import type { View } from "react-native";
+-
+-declare module 'react-native-keyboard-manager' {
+-  export type ToolbarBehaviour = 'subviews' | 'tag' | 'position';
+-  export type KeyboardAppearance = 'default' | 'light' | 'dark';
+-
+-  export class PreviousNextView extends View { }
+-
+-  namespace KeyboardManager {
+-    function setEnable(enable: boolean): void;
+-    function setEnableDebugging(enable: boolean): void;
+-    function setLayoutIfNeededOnUpdate(enable: boolean): void;
+-    function setKeyboardDistanceFromTextField(distance: number): void;
+-    function setEnableAutoToolbar(enable: boolean): void;
+-    function setToolbarDoneBarButtonItemText(text: string): void;
+-    function setToolbarManageBehaviourBy(behaviour: ToolbarBehaviour): void;
+-    function setToolbarPreviousNextButtonEnable(enable: boolean): void;
+-    function setToolbarTintColor(hexColor: string): void;
+-    function setToolbarBarTintColor(hexColor: string): void;
+-    function setShouldShowToolbarPlaceholder(enable: boolean): void;
+-    function setOverrideKeyboardAppearance(enable: boolean): void;
+-    function setKeyboardAppearance(appearance: KeyboardAppearance): void;
+-    function setShouldResignOnTouchOutside(enable: boolean): void;
+-    function setShouldPlayInputClicks(enable: boolean): void;
+-    function setShouldToolbarUsesTextFieldTintColor(enable: boolean): void;
+-    function resignFirstResponder(): void;
+-    function reloadLayoutIfNeeded(): void;
+-    function isKeyboardShowing(): Promise<boolean>;
+-  }
+-
+-  export default KeyboardManager;
+-}
+diff --git a/node_modules/react-native-keyboard-manager/index.js b/node_modules/react-native-keyboard-manager/index.js
+deleted file mode 100644
+index e80770c..0000000
+--- a/node_modules/react-native-keyboard-manager/index.js
++++ /dev/null
+@@ -1,33 +0,0 @@
+-/**
+-* MIT License
+-* 
+-* Copyright (c) 2017 Douglas Nassif Roma Junior
+-* 
+-* Permission is hereby granted, free of charge, to any person obtaining a copy
+-* of this software and associated documentation files (the "Software"), to deal
+-* in the Software without restriction, including without limitation the rights
+-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-* copies of the Software, and to permit persons to whom the Software is
+-* furnished to do so, subject to the following conditions:
+-* 
+-* The above copyright notice and this permission notice shall be included in all
+-* copies or substantial portions of the Software.
+-* 
+-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-* SOFTWARE. 
+-*/
+-
+-import {
+-    NativeModules, requireNativeComponent,
+-    View, Platform,
+-} from 'react-native';
+-const { OS } = Platform;
+-
+-export const PreviousNextView = OS === 'ios' ? requireNativeComponent('RNKMPreviousNextView') : View;
+-
+-export default NativeModules.ReactNativeKeyboardManager;
+diff --git a/node_modules/react-native-keyboard-manager/jsconfig.json b/node_modules/react-native-keyboard-manager/jsconfig.json
+deleted file mode 100644
+index c98b6e0..0000000
+--- a/node_modules/react-native-keyboard-manager/jsconfig.json
++++ /dev/null
+@@ -1,9 +0,0 @@
+-{
+-    "compilerOptions": {
+-        "allowJs": true,
+-        "allowSyntheticDefaultImports": true
+-    },
+-    "exclude": [
+-        "node_modules"
+-    ]
+-}
+\ No newline at end of file

@@ -1,0 +1,63 @@
+import { SUB_NAME_UPPERCASE } from '@env';
+import { translate } from '@utils/i18n/translate';
+
+export const DEFAULT_MOST_USED_FUNCTION_LIST_NV = [
+  translate('slink:Personnel_organization'),
+  translate('slink:Lop_hanh_chinh'),
+  translate('slink:Lop_tin_chi'),
+  translate('slink:Administrative_service'),
+  translate('slink:Calendar'),
+  translate('slink:News'),
+  translate('slink:Online_survey'),
+  translate('slink:Feedback'),
+  // translate('slink:BirthDayCal'),
+  translate('slink:Academy_weekly_calender'),
+  translate('slink:Scientific_and_technological_results'),
+  translate('slink:Frequently_asked_questions'),
+  translate('slink:Guidelines_doc'),
+  // translate('slink:Attendance_sheet'),
+  translate('slink:Introduce_about', { name: SUB_NAME_UPPERCASE }),
+  // translate('slink:Activity_plan'),
+  // translate('slink:Infrastructure'),
+  // translate('slink:Asset_inventory'),
+  // translate('slink:Job'),
+  translate('slink:Su_kien'),
+];
+
+export const DEFAULT_MOST_USED_FUNCTION_LIST_SV = [
+  translate('slink:Lop_tin_chi'),
+  translate('slink:Lop_hanh_chinh'),
+  translate('slink:Administrative_service'),
+  translate('slink:Debt'),
+  translate('slink:Guidelines_doc'),
+  translate('slink:Course_registration_results'),
+  translate('slink:Grade'),
+  translate('slink:News'),
+  translate('slink:Learning_process'),
+  translate('slink:TimeTable'),
+  translate('slink:Feedback'),
+  translate('slink:Online_survey'),
+  translate('slink:Frequently_asked_questions'),
+  translate('slink:Introduce_about', { name: SUB_NAME_UPPERCASE }),
+  translate('slink:Diem_ren_luyen'),
+  translate('slink:Lich_thi'),
+  // translate('slink:Dormitory'),
+  // translate('slink:Smart_computer'),
+  // translate('slink:Graduation'),
+  translate('slink:Su_kien'),
+  // translate('slink:Course_registration'),
+];
+
+export const DEFAULT_MOST_USED_FUNCTION_CONFIG = [
+  translate('slink:HR_records'),
+  translate('slink:Personal_information'),
+  translate('slink:Roles_change'),
+  // translate('slink:Change_pass'),
+  translate('slink:Office_365'),
+  // translate('slink:Language'),
+  // translate('slink:Setting'),
+  translate('slink:Support'),
+  // translate('slink:Clear_cache'),
+  translate('slink:Rating'),
+  // translate('slink:Saved'),
+];

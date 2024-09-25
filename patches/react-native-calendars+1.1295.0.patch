@@ -1,0 +1,14 @@
+diff --git a/node_modules/react-native-calendars/src/expandableCalendar/Context/Provider.js b/node_modules/react-native-calendars/src/expandableCalendar/Context/Provider.js
+index 1f7d40d..c3e6fb1 100644
+--- a/node_modules/react-native-calendars/src/expandableCalendar/Context/Provider.js
++++ b/node_modules/react-native-calendars/src/expandableCalendar/Context/Provider.js
+@@ -58,7 +58,8 @@ const CalendarProvider = (props) => {
+         return (<TodayButton ref={todayButton} disabledOpacity={disabledOpacity} margin={todayBottomMargin} style={todayButtonStyle} theme={theme}/>);
+     };
+     return (<CalendarContext.Provider value={contextValue}>
+-      <View style={wrapperStyle}>{children}</View>
++      {/* <View style={wrapperStyle}>{children}</View> */}
++      <View >{children}</View>
+       {showTodayButton && renderTodayButton()}
+     </CalendarContext.Provider>);
+ };
